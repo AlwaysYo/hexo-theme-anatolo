@@ -17,8 +17,8 @@
     text-align: center;
     margin-top: -50px;
 
-    .description {
-      font-size: 14px;
+    .description p{
+      font-size: 18px;
       color: var(--secondary-350);
     }
 
@@ -75,7 +75,7 @@
   .social-links {
     list-style: none;
     padding: 0;
-    font-size: 14px;
+    font-size: 18px;
     text-align: center;
 
     i {
@@ -84,7 +84,7 @@
 
     li {
       display: inline;
-      padding: 0 4px;
+      padding: 0 15px;
       line-height: 0;
     }
 

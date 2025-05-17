@@ -19,7 +19,8 @@ include toc
           .description
             p!= theme.description
       include social_links
-      include components/blog-time
+      if !page.toc || page.toc.length === 0
+        include components/blog-time
 
     include toc
     +make_toc(true)

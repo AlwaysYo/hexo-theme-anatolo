@@ -37,6 +37,8 @@ mixin make_post(item, is_detail)
             span
           else if is_current('guestbook')
             span
+          else if is_current('links')
+            span
           else
             i.fa.fa-sun-o
             span.date= date(item.date, "YYYY-MM-DD")

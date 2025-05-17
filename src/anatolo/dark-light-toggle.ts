@@ -1,25 +1,39 @@
-function getTheme() {
-  return document.querySelector('html')!.getAttribute('theme') ?? 'default';
+// 缓存HTML元素引用
+const htmlEl = document.documentElement;
+
+// 获取系统主题状态
+function getSystemTheme() {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
-function setTheme() {
-  const theme = localStorage.getItem('theme');
-  if (theme) {
-    document.querySelector('html')!.setAttribute('theme', theme);
-  }
+// 获取当前主题（处理默认值）
+function getCurrentTheme() {
+  return htmlEl.getAttribute('theme') ?? 'default';
 }
 
-setTheme();
+// 应用主题设置
+function applyTheme() {
+  const savedTheme = localStorage.getItem('theme');
+  savedTheme
+    ? htmlEl.setAttribute('theme', savedTheme)
+    : htmlEl.removeAttribute('theme');
+}
 
-export function darkLightToggle() {
-  let themeNow = getTheme();
-  if (themeNow === 'default') {
-    themeNow = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'true';
-  }
-  if (themeNow === 'dark') {
-    localStorage.setItem('theme', 'light');
-  } else {
-    localStorage.setItem('theme', 'dark');
-  }
-  setTheme();
+// 初始化主题
+applyTheme();
+
+// 主题切换逻辑
+export function toggleDarkLightTheme() {
+  const currentTheme = getCurrentTheme();
+
+  // 确定实际使用主题
+  const effectiveTheme = currentTheme === 'default'
+    ? getSystemTheme()
+    : currentTheme;
+
+  // 切换并存储新主题
+  const newTheme = effectiveTheme === 'dark' ? 'light' : 'dark';
+  localStorage.setItem('theme', newTheme);
+
+  applyTheme();
 }
