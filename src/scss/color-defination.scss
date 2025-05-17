@@ -32,7 +32,6 @@
   @include genColor('primary', $primary, $secondary);
   @include genColor('secondary', $secondary, $primary);
   @include genColor('tertiary', $tertiary, $secondary);
-
 }
 
 html[theme='default'] {

@@ -14,9 +14,7 @@ function getCurrentTheme() {
 // 应用主题设置
 function applyTheme() {
   const savedTheme = localStorage.getItem('theme');
-  savedTheme
-    ? htmlEl.setAttribute('theme', savedTheme)
-    : htmlEl.removeAttribute('theme');
+  savedTheme ? htmlEl.setAttribute('theme', savedTheme) : htmlEl.removeAttribute('theme');
 }
 
 // 初始化主题
@@ -27,9 +25,7 @@ export function toggleDarkLightTheme() {
   const currentTheme = getCurrentTheme();
 
   // 确定实际使用主题
-  const effectiveTheme = currentTheme === 'default'
-    ? getSystemTheme()
-    : currentTheme;
+  const effectiveTheme = currentTheme === 'default' ? getSystemTheme() : currentTheme;
 
   // 切换并存储新主题
   const newTheme = effectiveTheme === 'dark' ? 'light' : 'dark';
