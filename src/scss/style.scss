@@ -323,6 +323,7 @@
 
   .weibo {
     background-color: #ed6243;
+
     a {
       color: #fff;
     }
@@ -334,6 +335,7 @@
 
   .twitter {
     background-color: #59c0fd;
+
     a {
       color: #fff;
     }
@@ -345,6 +347,7 @@
 
   .mastodon {
     background-color: #6d2fdf;
+
     a {
       color: #fff;
     }
@@ -423,9 +426,8 @@ a.btn {
   font-weight: 400;
   font-style: normal;
   border-radius: 999em;
-  transition:
-    color 0.8s,
-    border 0.8s;
+  transition: color 0.8s,
+  border 0.8s;
 }
 
 .btn:hover {
@@ -683,35 +685,151 @@ a.btn {
   }
 }
 
-.friend-link-container {
-  display: inline-block;
+:root {
+  --background-primary: #ffffff;
+  --background-secondary: #f8f9fa;
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
-.friend-link-box {
-  width: 350px;
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid var(--primary-100);
-  border-radius: 10px;
+
+.cards-container {
   display: grid;
-  grid-template: auto / 84px auto;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.25rem; /* 如果容器需要底部间距 */
 }
 
-.friend-link-meta {
-  padding: 10px;
+.friend-link-card {
+  display: flex;
+  /* 原有样式保留 */
+  padding: 1.25rem;
+  background: var(--background-secondary);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #e8d3ff;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.friend-link-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+
+.friend-link-avatar {
+  flex: 0 0 72px;
+  height: 72px;
+  margin-right: 1.25rem;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--background-primary);
+  position: relative;
+}
+
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 12px;
+}
+
+
+.friend-link-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.friend-link-avatar:hover img {
+  transform: scale(1.05);
+}
+
+.friend-link-content {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 0;
 }
 
 .friend-link-title {
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
 }
 
-.friend-link-avatar {
-  width: 64px;
-  margin-right: 10px;
+.friend-link-title a {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
 }
 
-.friend-link-avatar img {
-  width: 64px;
+.friend-link-title a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #9c27b0;
+  transition: width 0.3s ease;
+}
+
+.friend-link-title a:hover::after {
+  width: 100%;
+}
+
+.friend-link-description {
+  font-size: 0.925rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .friend-links-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .friend-link-card {
+    padding: 1rem;
+  }
+
+  .friend-link-avatar {
+    width: 60px;
+    height: 60px;
+    margin-right: 1rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .friend-link-avatar {
+    width: 100%;
+    height: auto; /* 移除固定高度 */
+    aspect-ratio: 1/1; /* 添加宽高比约束 */
+    position: relative;
+  }
+
+  .friend-link-avatar img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 改为cover模式 */
+    object-position: center;
+  }
 }
 
 .float-button {
