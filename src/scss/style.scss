@@ -294,6 +294,11 @@
   }
 }
 
+/* 分隔符与标题间距 */
+.post-separator {
+  margin: 0 0.6em;
+}
+
 /* share */
 .share {
   margin: 0px 30px;
@@ -945,7 +950,7 @@ a.btn {
 
 .tag_box {
   position: relative;
-  width: 80%;
+  width: 90%;
   margin-top: 1%;
-  margin-left: 7.2%;
+  margin-left: 8%;
 }

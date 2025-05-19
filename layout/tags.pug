@@ -19,5 +19,7 @@ block content
     .autopagerize_page_element: .content
       .archive
         ul.list-with-title
+          .tag-list!= alphabet_tag_list(site.tags, { a: "tag_btn", count: "tag_count", title_tag: "div", title_class: "listing-title", before: `<i class="fa"></i> ` })
+//- .tag-list!= alphabet_tag_list(site.tags, { a: "tag_btn", count: "tag_count", title_tag: "div", title_class: "listing-title", before: `<i class="fa fa-tag"></i> ` })
           //- .tag-list!= list_tags(site.tags, {class: {ul: 'ululul', li: 'tag_round', a: 'tag_btn', count: 'tag_btn is-grey'}, style: false, separator: ''})
-          .tag-list!= alphabet_tag_list(site.tags, { a: "tag_btn", count: "tag_count", title_tag: "div", title_class: "listing-title", before: `<i class="fa fa-tag"></i> ` })
+

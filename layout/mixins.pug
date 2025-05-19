@@ -91,6 +91,8 @@ mixin postList
 
       .listing-item
         .listing-post
-          a(href=url_for(item.path), title=item.title)= item.title
-          .post-time
-            span.date= date(item.date, "MM-DD")
+          a(href=url_for(item.path), title=item.title)
+            //- 添加完整日期并调整格式
+            span.post-date= date(item.date, "YYYY-MM-DD")
+            span.post-separator •
+            = item.title
