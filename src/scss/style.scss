@@ -553,13 +553,21 @@ a.btn {
   i {
     margin: 8px;
   }
+    /* 移除括号并添加乘号 */
+  .tag_count::before {
+    content: " × ";
+  }
+  
+  .tag_count::after {
+    content: "";
+  }
 
   .tag_count {
     align-items: center;
     border-radius: 100px;
     color: var(--secondary-250);
     display: inline-flex;
-    font-size: 0.5rem;
+    font-size: 0.9rem;
     width: 15px;
     height: 15px;
     justify-content: center;
