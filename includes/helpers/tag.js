@@ -43,7 +43,7 @@ module.exports = function (hexo) {
           .sort((tag1, tag2) => (tag1.name < tag2.name ? -1 : 1))
           .forEach((tag) => {
             htmls.push(
-              `<a class="${classNames.a}" href="${this.url_for(tag.path)}" rel="tag">${classNames.before}${util.escapeHTML(tag.name)}<span class="${classNames.count}">${tag.length}</span></a>`,
+              `<a class="${classNames.a}" href="${this.url_for(tag.path)}" rel="tag">${classNames.before}${util.escapeHTML(tag.name)}<span class="tag-separator">x</span><span class="${classNames.count}">${tag.length}</span></a>`,
             );
           });
         htmls.push(`</div>`);

@@ -553,29 +553,27 @@ a.btn {
   i {
     margin: 8px;
   }
-    /* 移除括号并添加乘号 */
-  .tag_count::before {
-    content: " × ";
-  }
-  
-  .tag_count::after {
-    content: "";
+
+  .tag-separator {
+    //margin: 0 0.5em;
+    //padding: 0 0.5rem;
+  padding-left: 0.5rem;
+
   }
 
   .tag_count {
     align-items: center;
     border-radius: 100px;
-    color: var(--secondary-250);
+    //color: var(--secondary-250);
     display: inline-flex;
-    font-size: 0.9rem;
-    width: 15px;
-    height: 15px;
+    //font-size: 0.8rem;
+    //width: 20px;
+    //height: 12px;
     justify-content: center;
-    line-height: 1.5;
-    padding: 5px;
-    margin: 5px;
+    //line-height: 1.5;
+    //padding: 5px;
+    //margin: 5px 8px;
     white-space: nowrap;
-    background-color: var(--secondary-900);
     transition: background-color 0.8s;
   }
 }
